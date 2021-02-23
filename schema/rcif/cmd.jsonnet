@@ -15,7 +15,7 @@ local cmd = moo.oschema.hier(s_cmd).dunedaq.cmdlib.cmd;
 local cs = {
 
     // fixme: specify a pattern that itself matches any regex?
-    state: s.string("State", doc="String for the state name"),
+   state: s.string("State", doc="String for the state name"),
 
    rccommand: s.record("RCCommand", [
         s.field("entry_state", self.state, "ANY",
@@ -33,7 +33,6 @@ local cs = {
                        doc="Boolean flag to disable storage"),
     trg_interval: s.number("TrgInterval", dtype="i8",
                        doc="Time ticks interval between fake triggers"),
-
 
     start_params: s.record("StartParams", [
         s.field("run", self.run_number, doc="Run Number"),

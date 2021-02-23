@@ -8,7 +8,8 @@ daq_setup_environment()
 
 set(RCIF_DEPENDENCIES)
 
-daq_codegen_schema(*.jsonnet MPATH_PKGS cmdlib TEMPL Structs.hpp Nljs.hpp )
+#daq_codegen_schema(*.jsonnet MPATH_PKGS cmdlib TEMPL Structs.hpp Nljs.hpp )
+daq_codegen( *.jsonnet DEP_PKGS cmdlib TEMPLATES Structs.hpp.j2 Nljs.hpp.j2 )
 
 ##############################################################################
 ##############################################################################
