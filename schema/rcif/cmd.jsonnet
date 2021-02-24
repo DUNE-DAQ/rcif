@@ -10,6 +10,7 @@ local moo = import "moo.jsonnet";
 local s = moo.oschema.schema("dunedaq.rcif.cmd");
 local s_cmd = import "cmdlib/cmd.jsonnet";
 local cmd = moo.oschema.hier(s_cmd).dunedaq.cmdlib.cmd;
+local reply = moo.oschema.hier(s_cmd).dunedaq.cmdlib.cmdreply;
 
 // A temporary schema construction context.
 local cs = {
@@ -17,11 +18,18 @@ local cs = {
     // fixme: specify a pattern that itself matches any regex?
    state: s.string("State", doc="String for the state name"),
 
-   rccommand: s.record("RCCommand", [
+   rccmd: s.record("RCCommand", [
         s.field("entry_state", self.state, "ANY",
                 doc="State at which the command is issued"),
         s.field("exit_state", self.state, "ANY",
                 doc="State after the successful exectution of the command"),
+        s.field("data", cmd.Data, optional=true,
+                doc="Command data object with type-specific structure"),
+    ], doc="Top-level run control command object structure"),
+
+    rccmdreply: s.record("RCCommandReply", [
+        s.field("state", self.state, "ANY",
+                doc="State at which the command is issued"),
         s.field("data", cmd.Data, optional=true,
                 doc="Command data object with type-specific structure"),
     ], doc="Top-level run control command object structure"),
