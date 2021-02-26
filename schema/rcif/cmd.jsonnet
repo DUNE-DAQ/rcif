@@ -10,7 +10,6 @@ local moo = import "moo.jsonnet";
 local s = moo.oschema.schema("dunedaq.rcif.cmd");
 local s_cmd = import "cmdlib/cmd.jsonnet";
 local cmd = moo.oschema.hier(s_cmd).dunedaq.cmdlib.cmd;
-local reply = moo.oschema.hier(s_cmd).dunedaq.cmdlib.cmdreply;
 
 // A temporary schema construction context.
 local cs = {
