@@ -18,6 +18,8 @@ local cs = {
    state: s.string("State", doc="String for the state name"),
 
    rccmd: s.record("RCCommand", [
+        s.field("id", cmd.CmdId,
+                doc="Identify the type of command"),
         s.field("entry_state", self.state, "ANY",
                 doc="State at which the command is issued"),
         s.field("exit_state", self.state, "ANY",
@@ -25,14 +27,6 @@ local cs = {
         s.field("data", cmd.Data, optional=true,
                 doc="Command data object with type-specific structure"),
     ], doc="Top-level run control command object structure"),
-
-    rccmdreply: s.record("RCCommandReply", [
-        s.field("state", self.state, "ANY",
-                doc="State at which the command is issued"),
-        s.field("data", cmd.Data, optional=true,
-                doc="Command data object with type-specific structure"),
-    ], doc="Top-level run control command object structure"),
-
 
     run_number: s.number("RunNumber", dtype="u8",
                        doc="Run Number"),
@@ -52,8 +46,8 @@ local cs = {
                 doc="Interval between triggers in 16 ns time ticks (default 1.024 s)"),
     ]),
 
-    # empty_params: s.record("EmptyParams", [
-    # ])
+    empty_params: s.record("EmptyParams", [
+    ])
 
 
 };
