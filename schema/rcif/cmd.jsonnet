@@ -46,9 +46,6 @@ local cs = {
                 doc="Interval between triggers in 16 ns time ticks (default 1.024 s)"),
     ]),
 
-    empty_params: s.record("EmptyParams", [
-    ])
-
 
 };
 
