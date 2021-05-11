@@ -19,7 +19,7 @@ local info = {
        s.field("class_name", self.cl, "runinfo", doc="Run Info class name"),
        s.field("running", self.running, 0, doc="Running flag"), 
        s.field("runno", self.runno, 0,  doc="Run number"), 
-       s.field("error", self.runtime, 0, doc="Run time in seconds")
+       s.field("runtime", self.runtime, 0, doc="Run time in seconds")
    ], doc="Run information")
 };
 
