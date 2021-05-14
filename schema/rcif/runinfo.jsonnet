@@ -6,7 +6,6 @@ local moo = import "moo.jsonnet";
 local s = moo.oschema.schema("dunedaq.rcif.runinfo");
 
 local info = {
-
    running : s.boolean("running_t",
                   doc="running flag"), 
    runno : s.number("runno_t", dtype="u8",
