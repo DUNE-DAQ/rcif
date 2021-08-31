@@ -35,10 +35,14 @@ local cs = {
     trg_interval: s.number("TrgInterval", dtype="i8",
                        doc="Time ticks interval between fake triggers"),
 
+    start_time : s.number("StartTime", dtype="u8",
+                       doc="Start time"),
+
     start_params: s.record("StartParams", [
         s.field("run", self.run_number, doc="Run Number"),
         s.field("disable_data_storage", self.disable_storage, 0, doc="Bool to disable storage. True = storage disabled"),
-        s.field("trigger_interval_ticks", self.trg_interval, 64000000, doc="Generated fake trigger rate in clock ticks.")
+        s.field("trigger_interval_ticks", self.trg_interval, 64000000, doc="Generated fake trigger rate in clock ticks."),
+        s.field("start_time", self.start_time, 0, doc="rc system time of the start in nanoseconds")
     ]),
 
     resume_params: s.record("ResumeParams", [
