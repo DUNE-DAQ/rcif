@@ -48,11 +48,11 @@ local cs = {
     ]),
   
     disable_params: s.record("DisableParams", [
-      s.field("app", self.app, doc="Which app was deactivated"),
+      s.field("resource_name", self.app, doc="Which resource was deactivated"),
     ]),
   
     enable_params: s.record("EnableParams", [
-      s.field("app", self.app, doc="Which app was reactivated"),
+      s.field("resource_name", self.app, doc="Which resource was reactivated"),
     ]),
 
 
