@@ -46,6 +46,10 @@ local cs = {
         s.field("trigger_interval_ticks", self.trg_interval, 64000000,
                 doc="Interval between triggers in 16 ns time ticks (default 1.024 s)"),
     ]),
+    resume_params: s.record("ResumeParams", [
+        s.field("trigger_interval_ticks", self.trg_interval, 64000000,
+                doc="Interval between triggers in 16 ns time ticks (default 1.024 s)"),
+    ]),
   
     disable_params: s.record("DisableParams", [
       s.field("resource_name", self.app, doc="Which resource was deactivated"),
