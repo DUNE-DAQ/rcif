@@ -33,7 +33,8 @@ local cs = {
     disable_storage: s.boolean("StorageDisabled",
                        doc="Boolean flag to disable storage"),
     trg_interval: s.number("TrgInterval", dtype="i8",
-                       doc="Time ticks interval between fake triggers"),
+                           doc="Time ticks interval between fake triggers"),
+    app: s.string("AppId", doc="The name (unique ID) of an app"),
 
     start_params: s.record("StartParams", [
         s.field("run", self.run_number, doc="Run Number"),
@@ -41,9 +42,17 @@ local cs = {
         s.field("trigger_interval_ticks", self.trg_interval, 64000000, doc="Generated fake trigger rate in clock ticks.")
     ]),
 
-    resume_params: s.record("ResumeParams", [
+    start_trigger_params: s.record("StartTriggerParams", [
         s.field("trigger_interval_ticks", self.trg_interval, 64000000,
                 doc="Interval between triggers in 16 ns time ticks (default 1.024 s)"),
+    ]),
+  
+    disable_params: s.record("DisableParams", [
+      s.field("resource_name", self.app, doc="Which resource was deactivated"),
+    ]),
+  
+    enable_params: s.record("EnableParams", [
+      s.field("resource_name", self.app, doc="Which resource was reactivated"),
     ]),
 
 
