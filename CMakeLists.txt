@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.12)
-project(rcif VERSION 1.1.3)
+project(rcif VERSION 1.2.3)
 
 find_package(daq-cmake REQUIRED)
 find_package(cmdlib REQUIRED)
