@@ -32,23 +32,18 @@ local cs = {
                        doc="Run Number"),
     disable_storage: s.boolean("StorageDisabled",
                        doc="Boolean flag to disable storage"),
-    trg_interval: s.number("TrgInterval", dtype="i8",
-                           doc="Time ticks interval between fake triggers"),
+    trg_rate: s.number("TrgRate", dtype="f8",
+                       doc="Trigger rate in Hz"),
     app: s.string("AppId", doc="The name (unique ID) of an app"),
 
     start_params: s.record("StartParams", [
         s.field("run", self.run_number, doc="Run Number"),
         s.field("disable_data_storage", self.disable_storage, 0, doc="Bool to disable storage. True = storage disabled"),
-        s.field("trigger_interval_ticks", self.trg_interval, 64000000, doc="Generated fake trigger rate in clock ticks.")
+        s.field("trigger_rate", self.trg_rate, doc="Generated fake trigger rate Hz.", optional=true)
     ]),
 
-    start_trigger_params: s.record("StartTriggerParams", [
-        s.field("trigger_interval_ticks", self.trg_interval, 64000000,
-                doc="Interval between triggers in 16 ns time ticks (default 1.024 s)"),
-    ]),
-    resume_params: s.record("ResumeParams", [
-        s.field("trigger_interval_ticks", self.trg_interval, 64000000,
-                doc="Interval between triggers in 16 ns time ticks (default 1.024 s)"),
+    change_rate_params: s.record("ChangeRateParams", [
+        s.field("trigger_rate", self.trg_rate, 1, doc="Trigger rate in Hz"),
     ]),
   
     disable_params: s.record("DisableParams", [
