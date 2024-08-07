@@ -8,7 +8,7 @@ find_package(opmonlib REQUIRED)
 daq_setup_environment()
 
 daq_codegen( cmd.jsonnet DEP_PKGS cmdlib TEMPLATES Structs.hpp.j2 Nljs.hpp.j2 )
-daq_protobuf_codegen( *.proto  )
+daq_protobuf_codegen( opmon/*.proto  )
 
 daq_add_library( LINK_LIBRARIES opmonlib::opmonlib )
 
