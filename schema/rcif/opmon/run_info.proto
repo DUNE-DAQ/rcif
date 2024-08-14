@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+
+package dunedaq.rcif.opmon;
+
+message RunInfo {
+
+  bool running = 1;
+  uint64 run_number = 2;
+  uint32 run_time =3; // time in seconds
+}
