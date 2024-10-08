@@ -39,7 +39,8 @@ local cs = {
     start_params: s.record("StartParams", [
         s.field("run", self.run_number, doc="Run Number"),
         s.field("disable_data_storage", self.disable_storage, 0, doc="Bool to disable storage. True = storage disabled"),
-        s.field("trigger_rate", self.trg_rate, doc="Generated fake trigger rate Hz.", optional=true)
+        s.field("trigger_rate", self.trg_rate, doc="Generated fake trigger rate Hz.", optional=true),
+        s.field("production_vs_test", self.state, "TEST", doc="Indicator of Production vs. Test running.")
     ]),
 
     change_rate_params: s.record("ChangeRateParams", [
